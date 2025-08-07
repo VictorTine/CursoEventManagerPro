@@ -1,0 +1,57 @@
+# Build results
+[Bb]in/
+[Oo]bj/
+
+# Rider
+.idea/
+
+# VS Code
+.vscode/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Logs
+*.log
+
+# DotCover
+*.dcvr
+
+# Crash dumps
+*.dmp
+
+# NuGet
+*.nupkg
+*.snupkg
+.nuget/
+
+# Paket
+.paket/
+paket-files/
+
+# Visual Studio
+.vs/
+*.dbmdl
+*.dbproj.schemaview
+
+# ReSharper
+_ReSharper*/
+*.DotSettings.user
+
+# Local DBs
+*.mdf
+*.ldf
+
+# Others
+TestResults/
+*.publishsettings
+wwwroot/dist/
+wwwroot/node_modules/
+.env
+.env.*
