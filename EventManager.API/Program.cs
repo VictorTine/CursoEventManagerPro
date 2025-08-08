@@ -22,8 +22,6 @@ builder.Services.AddValidatorsFromAssemblyContaining<CreateEventValidator>();
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") 
                        ?? "Server=(localdb)\\MSSQLLocalDB;Database=EventManagerDb;Trusted_Connection=True;";
 builder.Services.AddInfrastructure(connectionString);
-
-// 👇 Se não estiver dentro do AddInfrastructure
 builder.Services.AddScoped<IEventRepository, EventRepository>();
 
 // 👉 Swagger + Controllers
@@ -32,3 +30,19 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+// 👇 Middleware do Swagger
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI(); // Essa linha é obrigatória para exibir o Swagger
+}
+
+// 👇 Roteamento HTTP
+app.UseHttpsRedirection();
+
+app.UseAuthorization();
+
+app.MapControllers(); // Isso mapeia seus controllers para responderem às rotas
+
+app.Run();
